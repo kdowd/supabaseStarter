@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+        href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII="
+        rel="icon" type="image/x-icon" />
+
+    <link rel="stylesheet" href="./css/main.css" />
+
+
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js"
+        }
+      }
+    </script>
+
+    <script type="module" src="./js/main.js"></script>
+
+    <script type="module">
+
+        import { supabase } from "./js/main.js";
+        document.querySelector('button').addEventListener("click", async (e) => {
+            console.log("Get Users");
+            const { data, error } = await supabase
+                .from('subscribers')
+                .select('*')
+                .ilike('country', 'belarus');
+
+
+
+            if (error) {
+                console.log(error);
+            }
+
+            if (data) {
+                console.log(data);
+            }
+
+
+
+        });
+
+    </script>
+
+
+</head>
+
+<body>
+    <h1>Subscribers</h1>
+    <button>Show All</button>
+
+
+</body>
+
+</html>
