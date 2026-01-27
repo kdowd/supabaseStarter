@@ -9,7 +9,7 @@
         href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII="
         rel="icon" type="image/x-icon" />
 
-    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./css/main.css" />
 
 
 
@@ -23,35 +23,7 @@
     </script>
 
     <script type="module" src="./js/main.js"></script>
-
-    <script type="module">
-        import { supabase } from "./js/main.js";
-        console.log(supabase);
-        const form = document.querySelector(".signup-form");
-
-        async function handleSubmit(e) {
-            e.preventDefault();
-            console.log("submitting");
-
-            const { data, error } = await supabase.auth.signInWithOtp({
-                email: 'kevin.dowd@gmail.com',
-                options: {
-                    emailRedirectTo: 'http://127.0.0.63:5500/redirect.html'
-                }
-            });
-            if (data) {
-                window.pigg = data;
-            }
-
-            if (error) {
-                alert(error.message);
-            }
-
-        }
-
-        form?.addEventListener("submit", handleSubmit);
-
-    </script>
+    <script type="module" src="./js/form.js"></script>
 
     <script type="module">
 

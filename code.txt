@@ -43,3 +43,8 @@ export default class MyService {
 
 
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++===
+
+
+    https://apc01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpkpbzthkwskkudqogyrl.supabase.co%2Fauth%2Fv1%2Fverify%3Ftoken%3D74cd016cdbd083dcf97baf0edc42d68b42775036873b82cba081277b%26type%3Dsignup%26redirect_to%3Dhttp%3A%2F%2F127.0.0.63%3A5500%2Fredirect.html&data=05%7C02%7Ckevin.dowd%40yoobeecolleges.com%7C4899129aacd54691238108de5d763f59%7C6a425d0d58f24e36868910002b2ec567%7C0%7C0%7C639050959660174777%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=kJB3zo4Zmt35semZf%2BiOtEw5%2F0WbW7XMTmUl5jU%2B3Js%3D&reserved=0
+
+    ++++++++++++++++++++++++++++++++=
