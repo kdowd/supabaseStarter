@@ -1,0 +1,21 @@
+@import 'https://unpkg.com/open-props';
+
+body {
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+blockquote {
+  --_accent-1: var(--lime-5);
+  --_accent-2: var(--lime-4);
+  --_bg: var(--surface-2);
+  --_ink: var(--text-1);
+
+  color: var(--_ink);
+  border-color: var(--_accent-2);
+  background-color: var(--_bg);
+  justify-self: flex-start;
+}

@@ -1,0 +1,45 @@
+    <script type="module">
+        // Import from CDN
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+        const supabaseUrl = 'YOUR_SUPABASE_URL'; // Replace with your Supabase URL
+        const supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY'; // Replace with your Supabase Anon Key
+
+        const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+        console.log('Supabase client created via CDN:', supabase);
+
+        // Example usage:
+        async function fetchData() {
+            const { data, error } = await supabase.from('your_table_name').select('*');
+            if (error) {
+                console.error('Error fetching data:', error.message);
+            } else {
+                console.log('Data:', data);
+            }
+        }
+        fetchData();
+    </script>
+
+
+
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+export default class MyService { 
+	constructor(name) {
+		this.name = name;
+	}
+
+	getName() {
+		return this.name
+	}
+}
+
+ <script type="module">
+        import MyService from './services/my.js';
+        let myService = new MyService('test');
+        console.log(myService.getName());
+    </script>
+
+
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++===
