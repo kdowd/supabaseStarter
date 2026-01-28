@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+        href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII="
+        rel="icon" type="image/x-icon" />
+
+    <link rel="stylesheet" href="./css/main.css" />
+
+
+
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js"
+        }
+      }
+    </script>
+
+    <script type="module" src="./js/auth.js"></script>
+    <script type="module">
+        import { supabase } from "./js/main.js";
+        const { data: { session } } = await supabase.auth.getSession();
+        console.log("check auth");
+        if (session) {
+            // User is logged in, you can access user details via session.user
+            console.log('Logged in user:', session.user);
+        } else {
+            // User is not logged in
+            console.log('No active session.');
+        }
+
+    </script>
+
+
+</head>
+
+<body>
+
+    <p class="results" style="word-wrap: break-word; max-width: 90vw;"></p>
+    <form class="login-form">
+        <input type="email" placeholder="enter email" autocomplete="email">
+        <input type="password" placeholder="enter password" autocomplete="current-password">
+        <button type="submit">submit</button>
+    </form>
+    <h4>Logged-In Session Obj looks like:</h4>
+    <p>
+    <pre>
+        {
+        "id": "05938294-ee6d-431c-8bd4-e9424d0e6f45",
+        "aud": "authenticated",
+        "role": "authenticated",
+        "email": "kevin.dowd@gmail.com",
+        "email_confirmed_at": "2026-01-27T05:42:22.692069Z",
+        "phone": "",
+        "confirmation_sent_at": "2026-01-27T05:41:32.875392Z",
+        "confirmed_at": "2026-01-27T05:42:22.692069Z",
+        "recovery_sent_at": "2026-01-28T05:38:48.733674Z",      
+        "last_sign_in_at": "2026-01-28T05:39:14.894138Z",
+        "app_metadata": {
+        "provider": "email",
+        "providers": [
+        "email"
+        ]
+        },
+        "user_metadata": {
+        "email": "kevin.dowd@gmail.com",
+        "email_verified": true,
+        "phone_verified": false,
+        "sub": "05938294-ee6d-431c-8bd4-e9424d0e6f45"
+        },
+        "identities": [
+        {
+        "identity_id": "00a86310-50d5-4c1f-a23b-3b9808c90745",
+        "id": "05938294-ee6d-431c-8bd4-e9424d0e6f45",
+        "user_id": "05938294-ee6d-431c-8bd4-e9424d0e6f45",
+        "identity_data": {
+        "email": "kevin.dowd@gmail.com",
+        "email_verified": true,
+        "phone_verified": false,
+        "sub": "05938294-ee6d-431c-8bd4-e9424d0e6f45"
+        },
+        "provider": "email",
+        "last_sign_in_at": "2026-01-27T05:41:32.86627Z",
+        "created_at": "2026-01-27T05:41:32.866322Z",
+        "updated_at": "2026-01-27T05:41:32.866322Z",
+        "email": "kevin.dowd@gmail.com"
+        }
+        ],
+        "created_at": "2026-01-27T05:41:32.821784Z",
+        "updated_at": "2026-01-28T07:58:21.277314Z",
+        "is_anonymous": false
+        }
+    </pre>
+    </p>
+</body>
+
+</html>
