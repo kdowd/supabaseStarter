@@ -31,7 +31,10 @@
             const { data, error } = await supabase
                 .from('subscribers')
                 .select('*')
-                .ilike('country', 'belarus');
+                .ilike('country', 'netherlands') // returns array , even if just 1 or 0 results
+                .order('first_name', { ascending: true })
+                .limit(10);
+
 
 
 
@@ -41,6 +44,16 @@
 
             if (data) {
                 console.log(data);
+                //document.querySelector('.results').innerHTML = data;
+                data.forEach(element => {
+                    console.log(element);
+                    const div = document.createElement('div');
+                    div.innerHTML = `<p>Name: ${element.first_name + ' ' + element.last_name}</p>
+                    <p>Email: ${element.email}</p>
+                    <p>Country: ${element.country}</p>
+                    <hr/>`;
+                    document.querySelector('.results').appendChild(div);
+                });
             }
 
 
@@ -55,6 +68,7 @@
 <body>
     <h1>Subscribers</h1>
     <button>Show All</button>
+    <div class="results"></div>
 
 
 </body>
