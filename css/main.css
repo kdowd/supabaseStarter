@@ -21,7 +21,8 @@ blockquote {
   justify-self: flex-start;
 }
 
-.login-form {
+.login-form,
+.reset-password-form {
   display: grid;
   gap: var(--size-4);
   padding: var(--size-4);
@@ -53,4 +54,27 @@ nav > ul {
     background-color: black;
     padding: var(--size-2) var(--size-4);
   }
+}
+
+button {
+  padding: 0.5rem 1rem;
+  min-width: 6rem;
+  margin: 0.25rem;
+}
+
+.hide {
+  display: none;
+}
+
+.checkLoginStatus {
+  display: grid;
+  grid-auto-flow: column;
+  background-color: crimson;
+  gap: 20px;
+  padding: 1rem;
+  place-items: center;
+  margin: 1rem;
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }

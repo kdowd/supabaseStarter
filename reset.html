@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+        href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII="
+        rel="icon" type="image/x-icon" />
+
+    <link rel="stylesheet" href="./css/main.css" />
+
+
+
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js"
+        }
+      }
+    </script>
+
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/checkAuth.js"></script>
+
+
+
+
+
+
+    <script type="module">
+        import { supabase } from "./js/main.js";
+
+
+        const theForm = document.querySelector('.reset-password-form');
+
+        theForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const userEmail = e.target.querySelector("input[type=email]").value.trim();
+
+            if (!userEmail) {
+                alert("Please enter an email address.");
+                return;
+            }
+
+
+
+
+            await supabase.auth.resetPasswordForEmail(userEmail, {
+                redirectTo: 'http://127.0.0.63:5500/update-password.html',
+            });
+
+
+
+        });
+
+        // goes to the following
+        //http://127.0.0.63:5500/update-password.html#access_token=eyJhbGciOiJFUzI1NiIsImtpZCI6IjY4YjBmNzQ3LWU3ZTItNGEwZS1hYTRlLWM1OGUzY2ExM2I0YyIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3BrcGJ6dGhrd3Nra3VkcW9neXJsLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiIwNTkzODI5NC1lZTZkLTQzMWMtOGJkNC1lOTQyNGQwZTZmNDUiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzY5NjU1OTI4LCJpYXQiOjE3Njk2NTIzMjgsImVtYWlsIjoia2V2aW4uZG93ZEBnbWFpbC5jb20iLCJwaG9uZSI6IiIsImFwcF9tZXRhZGF0YSI6eyJwcm92aWRlciI6ImVtYWlsIiwicHJvdmlkZXJzIjpbImVtYWlsIl19LCJ1c2VyX21ldGFkYXRhIjp7ImVtYWlsIjoia2V2aW4uZG93ZEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGhvbmVfdmVyaWZpZWQiOmZhbHNlLCJzdWIiOiIwNTkzODI5NC1lZTZkLTQzMWMtOGJkNC1lOTQyNGQwZTZmNDUifSwicm9sZSI6ImF1dGhlbnRpY2F0ZWQiLCJhYWwiOiJhYWwxIiwiYW1yIjpbeyJtZXRob2QiOiJvdHAiLCJ0aW1lc3RhbXAiOjE3Njk2NTIzMjh9XSwic2Vzc2lvbl9pZCI6Ijk0MzdmZGI5LTM2N2EtNGQ0NS05ODcyLTJjOGExYTk3NGI4YSIsImlzX2Fub255bW91cyI6ZmFsc2V9.reMeWxzrqOBzLQVcGR32VY3jn73MAmemeVwoCTOGDUFwYgyN5AQLVhTduqB3UQs_PRcHde7R_E8nZGIgGqZyGA&expires_at=1769655928&expires_in=3600&refresh_token=7bgvqdwihmka&token_type=bearer&type=recovery
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./auth.html">Auth</a></li>
+                <li><a href="./addsubscriber.html">Add Subscriber</a></li>
+                <li><a href="./subscribers.html">Subscribers</a></li>
+                <li><a href="./profile.html">Profile</a></li>
+                <li><a href="./session.html">Logout</a></li>
+                <li><a href="./resetpassword.html">Reset</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Reset current password</h1>
+
+
+
+
+    <!-- reset password form -->
+    <form class='reset-password-form' action="">
+        <input type="email" placeholder="enter email" validate autocomplete="email">
+        <button type="submit">submit</button>
+    </form>
+
+
+    <div class="checkLoginStatus">
+        <button>Who am I ?</button>
+        <span>Unknown.</span>
+    </div>
+
+
+</body>
+
+</html>

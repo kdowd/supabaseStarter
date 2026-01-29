@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+        href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII="
+        rel="icon" type="image/x-icon" />
+
+    <link rel="stylesheet" href="./css/main.css" />
+
+
+
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js"
+        }
+      }
+    </script>
+
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/checkAuth.js"></script>
+
+    <script type="module">
+        import { supabase } from "./js/main.js";
+
+        // getUser() calls supabase, getSession() just checks local token and is therefore deemed insecure ?
+
+        window.addEventListener("load", async () => {
+            const { data: { user }, error } = await supabase.auth.getUser();
+            console.log("check auth");
+
+            const signinUI = document.querySelector('.no-session');
+            const signoutUI = document.querySelector('.is-session');
+
+            if (error) {
+                console.log(error.message, " +++");
+                signinUI.classList.remove('hide');
+                return;
+            }
+
+            if (user) {
+                console.log('Logged in user:');
+                signoutUI.classList.remove('hide');
+
+
+            } else {
+                signinUI.classList.remove('hide');
+            }
+        })
+    </script>
+
+
+
+
+    <script type="module">
+        import { supabase } from "./js/main.js";
+
+
+        const signoutButton = document.querySelector('.sign-out');
+
+        signoutButton.addEventListener("click", async (e) => {
+            console.log("sign out");
+            // does not cause error if no user signed in
+            const { error } = await supabase.auth.signOut();
+            if (error) {
+                console.error("Error fetching user:", error.message);
+
+            }
+
+        });
+
+    </script>
+
+    <script type="module" src="./js/form.js"></script>
+
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./auth.html">Auth</a></li>
+                <li><a href="./addsubscriber.html">Add Subscriber</a></li>
+                <li><a href="./subscribers.html">Subscribers</a></li>
+                <li><a href="./profile.html">Profile</a></li>
+                <li><a href="./session.html">Logout</a></li>
+                <li><a href="./update-password.html">Reset</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>LogIn/LogOut</h1>
+
+    <div class="no-session hide">
+        <p>You are not logged in. Sign In here.</p>
+
+        <form class="login-form">
+            <input type="email" placeholder="enter email" autocomplete="email">
+            <input type="password" placeholder="enter password" autocomplete="current-password">
+            <button type="submit">submit</button>
+        </form>
+
+    </div>
+
+    <div class="is-session hide">
+        <p>You are logged in. Click to sign-out</p>
+        <button class="sign-out ">Sign Out</button>
+    </div>
+
+
+
+
+    <div class="checkLoginStatus">
+        <button>Who am I ?</button>
+        <span>Unknown.</span>
+    </div>
+
+
+</body>
+
+</html>
