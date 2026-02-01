@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover" />
     <title>Document</title>
     <link
         href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII="
@@ -21,27 +21,34 @@
         }
       }
     </script>
+    <script type="module" src="./js/listenForAuthStateChange.js"></script>
 
-    <script type="module" src="./js/auth.js"></script>
-    <script type="module">
-        import { supabase } from "./js/main.js";
-        const { data: { user } } = await supabase.auth.getUser();
-        window.pigg = user;
-        console.log("check auth");
-        if (user) {
-            // User is logged in, you can access user details via session.user
-            console.log('Logged in user:', user);
-        } else {
-            // User is not logged in
-            console.log('No active session.');
-        }
+    <script src="./js/authCheckWithIcons.js" type="module"></script>
 
-    </script>
+    <script type="module" src="./js/join.js"></script>
 
 
 </head>
 
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./request-newsletter.html">Request Newsletter</a></li>
+                <li><a href="./titanic-search.html">Titanic Search</a></li>
+                <li><a href="./join.html">Join</a></li>
+
+            </ul>
+        </nav>
+        <div class="status">
+            <a class="hide" href="./session.html"><img src="./assets/auth.svg" alt=""> </a>
+            <a class="hide" href="./session.html"><img src="./assets/not-auth.svg" alt=""></a>
+
+        </div>
+
+    </header>
+
 
     <p class="results" style="word-wrap: break-word; max-width: 90vw;"></p>
     <form class="login-form">
@@ -49,7 +56,8 @@
         <input type="password" placeholder="enter password" autocomplete="current-password">
         <button type="submit">submit</button>
     </form>
-    <h4>Logged-In User Obj looks like:</h4>
+    <h4>Join:</h4>
+    <p>You'll recieve an email allowing you to reset your password</p>
     <p>
     <pre>
         {

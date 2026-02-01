@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover" />
+    <title>Document</title>
+    <link
+        href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII="
+        rel="icon" type="image/x-icon" />
+
+    <link rel="stylesheet" href="./css/main.css" />
+
+
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js"
+        }
+      }
+    </script>
+
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/listenForAuthStateChange.js"></script>
+    <script src="./js/authCheckWithIcons.js" type="module"></script>
+
+
+    <script type="module">
+        import { supabase } from "./js/main.js";
+
+
+        console.log(1, 2);
+
+
+        // let query = supabase
+        //     .from('titanic')
+        //     .select('*');
+
+        // query = query.textSearch('name', '', {
+        //     type: 'websearch',
+        //     config: 'english'
+        // });
+
+
+        // const { data, error } = await query;
+
+        // if (error) {
+        //     console.log(error);
+        // }
+
+        // if (data) {
+        //     console.log(data);
+        // }
+
+
+    </script>
+    <!-- SELECT COUNT(*) AS total_rows FROM "titanic"; -->
+    <!-- SELECT "survived" AS survived, COUNT(*) AS count FROM "titanic" GROUP BY "survived" ORDER BY "survived"; -->
+
+    <script type="module">
+
+        import { supabase } from "./js/main.js";
+        document.querySelector('.gender button').addEventListener("click", async (e) => {
+            console.log("Get data");
+            const { data, error } = await supabase
+                .from('titanic')
+                .select('*')
+                .eq('gender', 'female'); // returns array , even if just 1 or 0 results
+            // .limit(10);
+
+
+
+
+            if (error) {
+                console.log(error);
+            }
+
+            if (data) {
+                console.log(data);
+                //document.querySelector('.results').innerHTML = data;
+                // data.forEach(element => {
+                //     console.log(element);
+                //     const div = document.createElement('div');
+                //     div.innerHTML = `<p>Name: ${element.first_name + ' ' + element.last_name}</p>
+                //     <p>Email: ${element.email}</p>
+                //     <p>Country: ${element.country}</p>
+                //     <hr/>`;
+                //     document.querySelector('.results').appendChild(div);
+                // });
+            };
+
+
+
+        });
+
+    </script>
+
+
+</head>
+
+<body>
+    <header class="main-header">
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./request-newsletter.html">Request Newsletter</a></li>
+                <li><a href="./titanic-search.html">Titanic Search</a></li>
+                <li><a href="./join.html">Join</a></li>
+
+            </ul>
+        </nav>
+        <div class="status">
+            <a class="hide" href="./session.html"><img src="./assets/auth.svg" alt=""> </a>
+            <a class="hide" href="./session.html"><img src="./assets/not-auth.svg" alt=""></a>
+
+        </div>
+
+    </header>
+    <h1>Titanic Search</h1>
+
+
+    <div class="all-searches-grid">
+        <div class="gender">
+            <div class="main">
+                <button>Gender:</button>
+                <span>100</span>
+            </div>
+        </div>
+        <div class="survived">
+            <div class="main">
+                <button>Survived:</button>
+                <span>100</span>
+            </div>
+        </div>
+        <div class="underfives">
+            <div class="main">
+                <button>Under Fives:</button>
+                <span>100</span>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="results"></div>
+    <footer>
+        <img src="./assets/emojione--passenger-ship.svg" alt="">
+        <div>
+            <h6>Titanic:</h6>
+            <h6>data from https://www.kaggle.com/datasets</h6>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

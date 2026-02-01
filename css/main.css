@@ -1,7 +1,9 @@
 @import 'https://unpkg.com/open-props';
 
 body {
-  background-color: cadetblue;
+  font-family: var(--font-monospace-code);
+  display: flex;
+  background-color: cornflowerblue;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +24,8 @@ blockquote {
 }
 
 .login-form,
-.reset-password-form {
+.reset-password-form,
+.newsletter-form {
   display: grid;
   gap: var(--size-4);
   padding: var(--size-4);
@@ -35,18 +38,40 @@ blockquote {
   }
 }
 
-header {
+header.main-header {
   background-color: rgb(108 108 108);
-  padding: 1rem 0;
+  padding: 1.2rem 0;
+  anchor-name: --my-anchor;
+}
+
+footer {
+  background-color: rgb(108 108 108);
+  padding: 0.5rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  h6 {
+    color: snow;
+    padding: 0.25rem 0;
+    margin: 0;
+  }
 }
 nav > ul {
   font-family: var(--font-monospace-code);
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
   width: 96%;
   margin: auto;
   list-style: none;
-  gap: var(--size-4);
+  gap: 2rem;
   padding: 0;
   a {
     text-decoration: none;
@@ -54,6 +79,13 @@ nav > ul {
     background-color: black;
     padding: var(--size-2) var(--size-4);
   }
+}
+
+.status {
+  position: absolute;
+  position-anchor: --my-anchor;
+  bottom: anchor(bottom);
+  right: anchor(right);
 }
 
 button {
@@ -64,6 +96,11 @@ button {
 
 .hide {
   display: none;
+}
+
+.error {
+  color: crimson;
+  background-color: black;
 }
 
 .checkLoginStatus {

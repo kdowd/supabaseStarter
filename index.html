@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover" />
     <title>Document</title>
     <link
         href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII="
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./css/main.css" />
 
 
-
+    <!-- https://supabase.com/docs/reference/javascript/start-->
 
     <script type="importmap">
       {
@@ -25,16 +25,7 @@
     <script type="module" src="./js/main.js"></script>
     <script type="module" src="./js/form.js"></script>
 
-    <script type="module">
-
-        import { supabase } from "./js/main.js";
-        window.addEventListener("load", async () => {
-            const { data: { user } } = await supabase.auth.getUser();
-
-            console.log("User =", user);
-
-        })
-    </script>
+    <script src="./js/authCheckWithIcons.js" type="module"></script>
 
 
 </head>
@@ -44,15 +35,20 @@
         <nav>
             <ul>
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./auth.html">Auth</a></li>
-                <li><a href="./addsubscriber.html">Add Subscriber</a></li>
-                <li><a href="./subscribers.html">Subscribers</a></li>
-                <li><a href="./profile.html">Profile</a></li>
-                <li><a href="./session.html">Logout</a></li>
+                <li><a href="./request-newsletter.html">Request Newsletter</a></li>
+                <li><a href="./titanic-search.html">Titanic Search</a></li>
+                <li><a href="./join.html">Join</a></li>
+
             </ul>
         </nav>
+        <div class="status">
+            <a class="hide" href="./session.html"><img src="./assets/auth.svg" alt=""> </a>
+            <a class="hide" href="./session.html"><img src="./assets/not-auth.svg" alt=""></a>
+
+        </div>
+
     </header>
-    <h1>Titanic: data from https://www.kaggle.com/datasets</h1>
+
     <form action="" class="signup-form">
         <input type="email" placeholder="enter email" autocomplete="email">
         <button type="submit">submit</button>
@@ -62,15 +58,25 @@
     <p>Follow this link to login:</p>
     <p><a href="{{ .ConfirmationURL }}">Log In</a></p>
     <blockquote>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita deserunt ratione mollitia quo modi placeat?
-        Aut
-        adipisci corrupti dolore officiis modi consequuntur illo animi dignissimos laudantium mollitia harum officia,
-        ducimus deserunt quam veritatis quod totam itaque hic tempore suscipit tenetur quae a accusamus reprehenderit!
-        Odio, porro culpa? Atque placeat nobis eum sapiente cumque esse consequatur nemo soluta vel. Odio quasi est
-        libero! Sequi a odit deserunt est nihil rerum saepe libero delectus possimus, officia necessitatibus tempore
-        quaerat optio qui aperiam ipsum nesciunt aliquid enim et impedit nostrum labore? Tenetur fugiat quas porro in ea
-        iusto asperiores vero eius iure quasi.
+        The sinking of the RMS Titanic on April 15, 1912, killed approximately 1,500 people, roughly 68% of the 2,200+
+        passengers and crew on board.
     </blockquote>
+    <blockquote>
+        Most victims died from hypothermia in the freezing North Atlantic waters, with
+        only 337
+        bodies recovered. Major casualties included crew members and third-class passengers, who had lower survival
+        rates.
+    </blockquote>
+
+
+    <footer>
+        <img src="./assets/emojione--passenger-ship.svg" alt="">
+        <div>
+            <h6>Titanic:</h6>
+            <h6>data from https://www.kaggle.com/datasets</h6>
+        </div>
+
+    </footer>
 </body>
 
 </html>

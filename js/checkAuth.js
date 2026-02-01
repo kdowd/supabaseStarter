@@ -1,4 +1,3 @@
-
 import { supabase } from "./main.js";
 
 const statusButton = document.querySelector('.checkLoginStatus > button');

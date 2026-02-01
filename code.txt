@@ -57,4 +57,60 @@ Then read it with:
 
 document.getElementById("module-script").dataset.json
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++=====
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+create table "public"."currency" (
+    "id" character varying(255) not null default uuid_generate_v4(),
+    "name" character varying(255) not null,
+    "code" character(3) not null,
+    "created_at" timestamp with time zone not null default CURRENT_TIMESTAMP,
+    "updated_at" timestamp with time zone not null default CURRENT_TIMESTAMP
+);
+
+
+alter table "public"."currency" enable row level security;
+alter table "public"."currency" add constraint "idx_17323_primary" PRIMARY KEY using index "idx_17323_primary";
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ <script type="module">
+
+        import { supabase } from "./js/main.js";
+        document.querySelector('button').addEventListener("click", async (e) => {
+            console.log("Get Users");
+            const { data, error } = await supabase
+                .from('titanic')
+                .select('*')
+                .ilike('country', 'netherlands') // returns array , even if just 1 or 0 results
+                .order('first_name', { ascending: true })
+                .limit(10);
+
+
+
+
+            if (error) {
+                console.log(error);
+            }
+
+            if (data) {
+                console.log(data);
+                //document.querySelector('.results').innerHTML = data;
+                data.forEach(element => {
+                    console.log(element);
+                    const div = document.createElement('div');
+                    div.innerHTML = `<p>Name: ${element.first_name + ' ' + element.last_name}</p>
+                    <p>Email: ${element.email}</p>
+                    <p>Country: ${element.country}</p>
+                    <hr/>`;
+                    document.querySelector('.results').appendChild(div);
+                });
+            }
+
+
+
+        // });
+
+    </script>

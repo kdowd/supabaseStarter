@@ -5,6 +5,8 @@ form?.addEventListener("submit", handleSubmit);
 
 async function handleSubmit(e) {
     e.preventDefault();
+
+
     console.log("submitting...", e.target.querySelector('input[type=email]').value);
 
     console.log(e.target.querySelector('input[type=password]').value, " >>>>>");

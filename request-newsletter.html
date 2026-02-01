@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover" />
+  <title>Document</title>
+  <link
+    href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII="
+    rel="icon" type="image/x-icon" />
+
+  <link rel="stylesheet" href="./css/main.css" />
+
+
+
+
+  <script type="importmap">
+      {
+        "imports": {
+          "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js"
+        }
+      }
+    </script>
+  <script src="./js/authCheckWithIcons.js" type="module"></script>
+  <script type="module" src="./js/request-newsletter.js"></script>
+
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./auth.html">Auth</a></li>
+        <li><a href="./request-newsletter.html">Request Newsletter</a></li>
+        <li><a href="./titanic-search.html">Titanic Search</a></li>
+        <li><a href="./join.html">Join</a></li>
+
+      </ul>
+    </nav>
+    <div class="status">
+      <a class="hide" href="./session.html"><img src="./assets/auth.svg" alt=""> </a>
+      <a class="hide" href="./session.html"><img src="./assets/not-auth.svg" alt=""></a>
+
+    </div>
+
+  </header>
+  <form class="newsletter-form" action="">
+    <input type="text" name="first_name" placeholder="enter first name">
+    <input type="text" name="last_name" placeholder="enter last name">
+    <input type="email" name="email" validate placeholder="enter email" autocomplete="email">
+    <button type="submit" class="add-subscriber">Request Newsletter </button>
+  </form>
+
+  <p class="results" style="word-wrap: break-word; max-width: 90vw;"></p>
+
+
+  <blockquote>
+    Here we are adding a row to an existing table - those who want a newsletter.
+  </blockquote>
+
+  <blockquote>
+    We are not adding a user that can be authenticated and log-in/out - thats very different.
+  </blockquote>
+</body>
+
+</html>

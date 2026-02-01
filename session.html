@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover" />
     <title>Document</title>
     <link
         href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII="
@@ -23,6 +23,7 @@
     </script>
 
     <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/listenForAuthStateChange.js"></script>
     <script type="module" src="./js/checkAuth.js"></script>
 
     <script type="module">
@@ -86,16 +87,20 @@
         <nav>
             <ul>
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./auth.html">Auth</a></li>
-                <li><a href="./addsubscriber.html">Add Subscriber</a></li>
-                <li><a href="./subscribers.html">Subscribers</a></li>
-                <li><a href="./profile.html">Profile</a></li>
-                <li><a href="./session.html">Logout</a></li>
-                <li><a href="./update-password.html">Reset</a></li>
+                <li><a href="./request-newsletter.html">Request Newsletter</a></li>
+                <li><a href="./titanic-search.html">Titanic Search</a></li>
+                <li><a href="./join.html">Join</a></li>
+
             </ul>
         </nav>
+        <div class="status">
+            <a class="hide" href="./session.html"><img src="./assets/auth.svg" alt=""> </a>
+            <a class="hide" href="./session.html"><img src="./assets/not-auth.svg" alt=""></a>
+
+        </div>
+
     </header>
-    <h1>LogIn/LogOut</h1>
+    <h3>LogIn/LogOut</h3>
 
     <div class="no-session hide">
         <p>You are not logged in. Sign In here.</p>
